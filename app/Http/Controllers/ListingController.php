@@ -21,6 +21,10 @@ class ListingController extends Controller
     {
         $query = Listing::query()->live();
 
+        // Saved search alerts match listings with the same rules, from the
+        // other side (SavedSearch::scopeMatching), so change both together.
+        // MatchingConsistencyTest checks they agree.
+
         if ($request->filled('property_type')) {
             $query->where('property_type', $request->string('property_type'));
         }

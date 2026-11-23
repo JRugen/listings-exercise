@@ -30,6 +30,22 @@ npm run dev            # Vite dev server for the front end
 
 Then open <http://127.0.0.1:8000>.
 
+## Trying out alerts
+
+Alerts are created by a queued listener. Set `QUEUE_CONNECTION=sync` in `.env` so they appear straight away. `.env.example` already has it, but an existing `.env` won't pick it up.
+
+```bash
+# 1. Find a listing that isn't live yet
+php artisan listing:unpublished
+
+# 2. Save a search in the app that it would match
+
+# 3. Make it live
+php artisan listing:publish {reference}
+```
+
+The alert shows on the Alerts page.
+
 ## Running the checks
 
 ```bash

@@ -1,7 +1,15 @@
 <?php
 
+use App\Http\Controllers\ListingAlertController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\SavedSearchController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ListingController::class, 'index'])->name('listings.index');
 Route::get('/listings/{listing}', [ListingController::class, 'show'])->name('listings.show');
+
+Route::resource('saved-searches', SavedSearchController::class)
+    ->only(['index', 'store', 'destroy'])
+    ->middlewareFor('destroy', 'can:delete,saved_search');
+
+Route::get('/alerts', [ListingAlertController::class, 'index'])->name('alerts.index');
