@@ -17,12 +17,20 @@ defineProps({
                 >
                     Street Listings
                 </Link>
-                <Link
-                    href="/saved-searches"
-                    class="text-sm font-medium text-slate-500 transition hover:text-slate-900"
-                >
-                    Saved searches
-                </Link>
+                <div class="flex items-center gap-4">
+                    <Link
+                        href="/saved-searches"
+                        class="text-sm font-medium text-slate-500 transition hover:text-slate-900"
+                    >
+                        Saved searches
+                    </Link>
+                    <Link
+                        href="/alerts"
+                        class="text-sm font-medium text-slate-500 transition hover:text-slate-900"
+                    >
+                        Alerts
+                    </Link>
+                </div>
             </nav>
             <h1 class="mt-2 text-3xl font-bold tracking-tight">{{ heading }}</h1>
             <p v-if="subheading" class="mt-1 text-slate-500">{{ subheading }}</p>
