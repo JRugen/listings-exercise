@@ -27,6 +27,11 @@ class SavedSearch extends Model
     /** @use HasFactory<SavedSearchFactory> */
     use HasFactory;
 
+    /**
+     * The criteria a saved search can hold. A blank criterion means "any".
+     */
+    public const CRITERIA = ['property_type', 'region', 'min_bedrooms', 'max_price'];
+
     protected $fillable = [
         'user_id',
         'property_type',
